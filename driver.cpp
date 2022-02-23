@@ -4,9 +4,14 @@
 #include <string>
 #include <vector>
 
-int main(void) {
+int main(int argc, char* argv[]) {
     std::string filename = "menu_1.txt";
     std::vector<std::string> menu_items;
+
+    if (argc == 1)
+        filename = "menu_1.txt";
+    else
+        filename = argv[1];
 
     std::ifstream in(filename);
 
@@ -22,6 +27,6 @@ int main(void) {
 
     in.close();
 
-    std::cout << menu_items.size() << "Items on the menu" << std::endl;
+    std::cout << menu_items.size() << " Items on the menu" << std::endl;
 
 }
